@@ -8,21 +8,22 @@ if(!cart){
 on buttons*/
 export function addToCart(id){
   let matchItem;
-      const quantityBuId = Number(document.querySelector(`.js-selector-${id}`).value)
-      cart.forEach((cartProduct) =>{
-        if (id === cartProduct.productId){
-          matchItem = cartProduct;
-        }});
+  const quantityBuId = Number(document.querySelector(`.js-selector-${id}`).value)
+  cart.forEach((cartProduct) =>{
+    if (id === cartProduct.productId){
+      matchItem = cartProduct;
+  }});
 
-        if (matchItem){
-          matchItem.quantity += quantityBuId
-        }else{
-          cart.push({
-            productId : id,
-            quantity : quantityBuId
-          });
-        }
-        saveToStorage()
+  if (matchItem){
+    matchItem.quantity += quantityBuId
+  }else{
+    cart.push({
+      productId : id,
+      quantity : quantityBuId,
+      deliveryId: '1'
+    });
+  }
+  saveToStorage()
 
 }
 
@@ -39,5 +40,17 @@ export function removeFromCart (id) {
   })
 
   cart = newCart
+  saveToStorage()
+}
+
+export function changeDeliveryOption(prudictId, deliveryOptionId){
+  let matchItem;
+
+  cart.forEach((cartProduct) =>{
+    if (prudictId === cartProduct.productId){
+      matchItem = cartProduct;
+    }
+  });
+  matchItem.deliveryId = deliveryOptionId
   saveToStorage()
 }
