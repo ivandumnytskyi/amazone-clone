@@ -1,4 +1,8 @@
-export const cart = []
+export let cart = JSON.parse(localStorage.getItem('cart'))
+
+if(!cart){
+  cart = []
+}
 
 /*updating items in cart by eventlistener 
 on buttons*/
@@ -18,5 +22,22 @@ export function addToCart(id){
             quantity : quantityBuId
           });
         }
+        saveToStorage()
 
+}
+
+export function saveToStorage(){
+  localStorage.setItem('cart', JSON.stringify(cart))
+}
+
+export function removeFromCart (id) {
+  let newCart = [];
+  cart.forEach(item =>{
+    if (item.productId !==id){
+      newCart.push(item)
+    }
+  })
+
+  cart = newCart
+  saveToStorage()
 }

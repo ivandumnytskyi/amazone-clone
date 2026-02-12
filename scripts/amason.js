@@ -1,6 +1,12 @@
 import { cart, addToCart } from '../data/cart.js';
 import { products } from '../data/products.js'
 
+
+function updateQuantity (){let cartQuantity = 0;
+cart.forEach(item => cartQuantity += item.quantity)
+      document.querySelector('.cart-quantity')
+        .innerHTML = `${cartQuantity}`;}
+updateQuantity()
 /* ganerating our main content 
 and adding it to grid*/
 let prodHTML = '';
@@ -71,10 +77,7 @@ document.querySelectorAll('.js-add-to-cart')
 
       /* changing quantity on the page 
       after adding to cart products*/
-      let cartQuantity = 0;
-      cart.forEach(item => cartQuantity += item.quantity)
-      document.querySelector('.cart-quantity')
-        .innerHTML = `${cartQuantity}`;
+      updateQuantity()
       
       //litle animation of "added" message
       const addedMassege = document.querySelector(`.js-added-${id}`)
