@@ -42,9 +42,9 @@ loadPage(renderPage)
             <span>
               Quantity: <span class="quantity-label">${cartProduct.quantity}</span>
             </span>
-            <span class="update-quantity-link link-primary">
+            <!--span class="update-quantity-link link-primary">
               Update
-            </span>
+            </span>-->
             <span class="delete-quantity-link link-primary
             js-delete-quantity" data-product-id='${productInfo.id}'>
               Delete
@@ -167,20 +167,7 @@ loadPage(renderPage)
       .innerHTML = `${countItems} items`
     
     document.querySelector('.js-place-order')
-    .addEventListener('click', /*async*/ ()=>{
-      // try{
-        // const response = await fetch('https://supersimplebackend.dev/orders',
-        // {
-        //   method: 'POST',
-        //   headers: {
-        //     'Content-Type': 'application/json'
-        //   },
-        //   body: JSON.stringify({
-        //     cart: cart
-        //   })
-        // })
-        
-        // const order = await response.json()
+    .addEventListener('click', ()=>{
         let lastId;
         if (!localStorage.getItem('orders')){
           lastId =0
@@ -195,9 +182,6 @@ loadPage(renderPage)
         }
         addOrder(order)
         localStorage.removeItem('cart')
-      // }catch (error){
-      //   alert('Unexpected eror. Try again later.')
-      // }
       
       window.location.href = 'orders.html'
     })
