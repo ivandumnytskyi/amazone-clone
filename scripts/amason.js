@@ -1,10 +1,8 @@
 import { cart, addToCart } from '../data/cart.js';
-import { products, /*loadProducts*/ loadFatch } from '../data/products.js'
+import { products, loadPage } from '../data/products.js'
 
+loadPage(renderProdGrid)
 
-loadFatch()
-.then(()=>renderProdGrid())
-// loadProducts(renderProdGrid);
 function renderProdGrid(){
   function updateQuantity (){let cartQuantity = 0;
   cart.forEach(item => cartQuantity += item.quantity)

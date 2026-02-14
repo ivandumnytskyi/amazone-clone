@@ -1,12 +1,11 @@
 import { cart, removeFromCart, changeDeliveryOption } from "../data/cart.js"
-import { products, /*loadProducts*/loadFatch } from "../data/products.js"
+import { products, loadPage } from "../data/products.js"
 import {deliveryOptions} from "../data/deliveryObj.js"
 import dayjs from 'https://unpkg.com/supersimpledev@8.5.0/dayjs/esm/index.js'
 
 
-loadFatch()
-.then(()=>renderPage())
-// loadProducts(renderPage)
+loadPage(renderPage)
+
  function renderPage (){let orderSummuryHTML = '';
 
   function orderSummery(productInfo,cartProduct){
