@@ -2,7 +2,7 @@ import { cart, removeFromCart, changeDeliveryOption } from "../data/cart.js"
 import { products, loadPage } from "../data/products.js"
 import {deliveryOptions} from "../data/deliveryObj.js"
 import dayjs from 'https://unpkg.com/supersimpledev@8.5.0/dayjs/esm/index.js'
-import {addOrder} from '../data/orders.js'
+import {addOrder} from '../data/ordersdata.js'
 
 
 loadPage(renderPage)
@@ -224,6 +224,7 @@ loadPage(renderPage)
         
         const order = await response.json()
         addOrder(order)
+        localStorage.removeItem('cart')
       }catch (error){
         alert('Unexpected eror. Try again later.')
       }
