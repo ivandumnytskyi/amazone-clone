@@ -14,6 +14,11 @@ export function loadFatch(){
 }
 
 export async function loadPage(func) {
-  await loadFatch()
+  try{
+    await loadFatch()
+  }catch(error){
+    alert('Something got wrong. Try later')
+  }
+  
   func()  
 }

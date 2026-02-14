@@ -205,5 +205,3 @@ loadPage(renderPage)
     })
 
   summury()}
-
-  renderPage()
