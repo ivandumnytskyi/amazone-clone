@@ -5,6 +5,9 @@ loadPage(renderProdGrid)
 
 function renderProdGrid(){
   updateQuantity()
+  const disclaimer = `<div class="alert">⚠️ This is a frontend practice project. 
+This is NOT Amazon and does NOT collect real payment data.
+</div>`
   /* ganerating our main content 
   and adding it to grid*/
   let prodHTML = '';
@@ -63,7 +66,7 @@ function renderProdGrid(){
   })
 
   document.querySelector('.products-grid')
-    .innerHTML = prodHTML;
+    .innerHTML = prodHTML + disclaimer;
 
   document.querySelectorAll('.js-add-to-cart')
     .forEach((button)=>{
@@ -83,5 +86,5 @@ function renderProdGrid(){
         setTimeout(()=>addedMassege.style.opacity = 0, 700)
         })
     })
-
+    setTimeout(()=>document.querySelector('.alert').classList.add('alerthide'),8000)
 }

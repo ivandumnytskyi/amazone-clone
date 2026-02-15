@@ -159,3 +159,24 @@
   padding: 8px;
   border-radius: 50px;
 }
+
+.alert{
+  bottom: 20px;
+  right: 20px;
+  background-color: rgb(203, 5, 5);
+  color: white;
+  padding: 20px;
+  width:300px;
+  height: 150px;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 20px;
+}
+
+.alerthide{
+  transition: 6s;
+  transform: translateX(400px);
+}
